@@ -24,11 +24,28 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #007bff;
+            background-color: #4CAF50; /* Color verde */
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 15px 0;
             z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px 10px 0 0; /* Bordes redondeados */
+            font-family: Arial, sans-serif; /* Fuente */
+        }
+        #install-button {
+            background-color: #fff; /* Botón blanco */
+            color: #4CAF50; /* Texto verde */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        #install-button:hover {
+            background-color: #f1f1f1; /* Cambio de color al pasar el ratón */
+            transform: scale(1.05); /* Efecto de aumento */
         }
     </style>
 </head>
@@ -37,7 +54,7 @@
     
     <!-- Banner de instalación -->
     <div id="install-banner">
-        <p>¡Instala nuestra aplicación para una mejor experiencia!</p>
+        <p style="margin: 0;">¡Instala nuestra aplicación para una mejor experiencia!</p>
         <button id="install-button">Instalar</button>
     </div>
 
@@ -60,11 +77,8 @@
         let deferredPrompt;
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // Previene que el mini-info aparezca
             e.preventDefault();
-            // Guarda el evento para usarlo más tarde
             deferredPrompt = e;
-            // Muestra el banner
             showInstallBanner();
         });
 
@@ -74,11 +88,8 @@
 
             const installButton = document.getElementById('install-button');
             installButton.addEventListener('click', () => {
-                // Oculta el banner
                 installBanner.style.display = 'none';
-                // Muestra el prompt de instalación
                 deferredPrompt.prompt();
-                // Espera la respuesta del usuario
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('Usuario aceptó la instalación');
