@@ -1,0 +1,26 @@
+
+   
+ {
+  "short_name": "OMETEPEC ON LINE",
+  "name": "OME ON LINE",
+  "icons": [
+  {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5tQjyxP5TvtqQnkQInwZIN9ZGhLiudk83lzgABzEKbcgyU0i6-FFCsMgMYzPDgqG_ENq6-WuCyCoAb4IMvFrkmboPsa06XKm4qvOUcWCKm4R3-8es1xHZ-ldlL3FkpFJ1cmn4piPG4kKGoiSzMINUCvP_MEOhNKBAyRjWezQttkWpWczp5RXdDh1augLI/s128/128.jpg",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+	 {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQqpAB8dAxtnNdQQLvyn5Z3UJNdPyigstByrnz3nf0uON37WV1r0wLei7zwX-TOG4piI-d805qpYjl5bluB5DHWP_-htHaeIBidQ2HgzX4xBp9aFdZlPHdrV-I8qIALlLesVHp8sP8GSYY1yzWn4JcyId58iBSHGxeRpcUIMkLMSu5CtxHYo4WesHFERLs/s512/512.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#00060a",
+  "theme_color": "#00060a"
+}
+   
+      
+      
