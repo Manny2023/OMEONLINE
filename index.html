@@ -19,10 +19,28 @@
             border: none; /* Sin borde */
             display: block; /* Elimina espacios en blanco */
         }
+        #install-banner {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <iframe src="https://catalogosvirtualesmx.blogspot.com/2024/09/s-spanhover-colorvar-primary-audio.html"></iframe>
+    
+    <!-- Banner de instalación -->
+    <div id="install-banner">
+        <p>¡Instala nuestra aplicación para una mejor experiencia!</p>
+        <button id="install-button">Instalar</button>
+    </div>
+
     <script src="main.js"></script>
     <script>
         // Este bloque registra el Service Worker
@@ -34,6 +52,40 @@
                 })
                 .catch(function(error) {
                     console.log('Error al registrar el Service Worker:', error);
+                });
+            });
+        }
+
+        // Código para manejar el banner de instalación
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Previene que el mini-info aparezca
+            e.preventDefault();
+            // Guarda el evento para usarlo más tarde
+            deferredPrompt = e;
+            // Muestra el banner
+            showInstallBanner();
+        });
+
+        function showInstallBanner() {
+            const installBanner = document.getElementById('install-banner');
+            installBanner.style.display = 'block';
+
+            const installButton = document.getElementById('install-button');
+            installButton.addEventListener('click', () => {
+                // Oculta el banner
+                installBanner.style.display = 'none';
+                // Muestra el prompt de instalación
+                deferredPrompt.prompt();
+                // Espera la respuesta del usuario
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Usuario aceptó la instalación');
+                    } else {
+                        console.log('Usuario rechazó la instalación');
+                    }
+                    deferredPrompt = null;
                 });
             });
         }
