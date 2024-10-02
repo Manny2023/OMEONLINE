@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>RADIO </title>
-  <link rel="manifest" href="manifest.json">
-</head>
-<body>
-<head>
-    <title>OME ONLINE</title>
-  
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi PWA</title>
+    <title>OME ONLINE</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.ibb.co/0mxT35p/favicon-32x32.png" type="image/x-icon">
+
+    <!-- Link al manifest -->
+    <link rel="manifest" href="manifest.json">
+
     <style>
         body {
             margin: 0;
@@ -31,33 +28,21 @@
 </head>
 <body>
     <iframe src="https://catalogosvirtualesmx.blogspot.com/2024/09/s-spanhover-colorvar-primary-audio.html"></iframe>
+
+    <!-- Contenido de tu aplicación aquí -->
+    <script src="main.js"></script>
+
+    <!-- Script para registrar el Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(function(registration) {
+                console.log('Service Worker registrado con éxito:', registration);
+            })
+            .catch(function(error) {
+                console.log('Error al registrar el Service Worker:', error);
+            });
+        }
+    </script>
 </body>
 </html>
-
-
-
-  <!-- Contenido de tu aplicación aquí -->
-  <script src="main.js"></script>
-</body>
-</html> _ _
-<script>
-
-  if ('serviceWorker' in navigator) {
-
-    navigator.serviceWorker.register('service-worker.js')
-
-      .then(function(registration) {
-
-        console.log('Service Worker registrado con éxito:', registration);
-
-      })
-
-      .catch(function(error) {
-
-        console.log('Error al registrar el Service Worker:', error);
-
-      });
-
-  }
-
-</script>
